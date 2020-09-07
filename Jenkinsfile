@@ -1,7 +1,21 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'mcr.microsoft.com/dotnet/core/sdk:3.1.101'
+        }
+    }
 
     stages {
+        stage('Verify') {
+            steps {
+                sh '''
+                  dotnet --list-sdks
+                  dotnet --list-runtimes
+                '''
+                sh 'printenv'
+                sh 'ls -l "$WORKSPACE"'
+            }
+        }
         stage('SCM') {
             steps {
                 echo 'Gathering code from SCM'
@@ -10,7 +24,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'dotnet --version'
+                // sh 'dotnet --version'
                 //sh 'dotnet build BethanysPieShop'
                 echo 'Building Mo ...'
             }
