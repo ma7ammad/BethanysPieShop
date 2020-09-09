@@ -10,10 +10,10 @@ pipeline {
     stages {
         stage('Verify') {
             steps {
-                sh '''
-                  dotnet --list-sdks
-                  dotnet --list-runtimes
-                '''
+                // sh '''
+                //   dotnet --list-sdks
+                //   dotnet --list-runtimes
+                // '''
                 sh 'printenv'
                 sh 'ls -l "$WORKSPACE"'
             }
