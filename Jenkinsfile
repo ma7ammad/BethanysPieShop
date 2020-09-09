@@ -21,7 +21,7 @@ pipeline {
         stage('SCM') {
             steps {
                 echo 'Gathering code from SCM'
-                git branch: '${branch}', url: 'https://github.com/ma7ammad/BethanysPieShop'
+                //git branch: '${branch}', url: 'https://github.com/ma7ammad/BethanysPieShop'
             }
         }
         stage('Build') {
