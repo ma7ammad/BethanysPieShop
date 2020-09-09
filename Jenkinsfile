@@ -27,7 +27,7 @@ pipeline {
         stage('Build') {
             steps {
                 // sh 'dotnet --version'
-                //sh 'dotnet build BethanysPieShop'
+                sh 'dotnet build BethanysPieShop'
                 echo 'Building Mo ...'
             }
         }
